@@ -256,12 +256,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621889585}
-  m_LocalRotation: {x: -0.40821794, y: 0.23456973, z: -0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 3.383749, y: -4.2428026, z: -5.3840485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.2859, y: 4.3972, z: -4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 110212923}
-  m_Father: {fileID: 2057058792}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &873298804
 GameObject:
@@ -338,7 +338,7 @@ Transform:
   m_LocalScale: {x: 31.04135, y: 13.575515, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &873298809
 Animator:
   serializedVersion: 3
@@ -432,7 +432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &987470689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +444,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f9a0ab9eba640149ecd9606ffc3e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facePlayerTime: 2
+  faceAwayTime: 5
+  facing: 0
 --- !u!1 &1967626184
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1967626186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partyGoers:
   - {fileID: 439870, guid: 35183c8d023394c72acd50425989eee7, type: 2}
-  numPartyGoers: 0
+  numPartyGoers: 10
   xMin: -30
   xMax: 30
   yMin: 0
@@ -550,7 +553,6 @@ Transform:
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 621889591}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
