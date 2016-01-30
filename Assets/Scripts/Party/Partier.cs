@@ -9,7 +9,7 @@ public class Partier : MonoBehaviour {
 
 	public bool facing;
 
-	private lastTurnTime;
+	private float lastTurnTime;
 
 
 
@@ -21,6 +21,12 @@ public class Partier : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+		if (!facing) {
+
+		}
+
 
 		bool fire = Input.GetButtonDown("Fire1");
 		if (fire == true) {
