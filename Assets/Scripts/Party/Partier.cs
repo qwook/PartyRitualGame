@@ -16,7 +16,7 @@ public class Partier : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
-		lastTurn = Time.time;
+		lastTurnTime = Time.time;
 	}
 	
 	// Update is called once per frame
