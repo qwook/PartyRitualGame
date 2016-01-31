@@ -9,6 +9,15 @@ public class MainMenu : MonoBehaviour {
 	public float hideLeaderBoardDelay = 0.5f;
 	public bool showLeaderboard = false;
 
+	public AudioClip[] navSounds;
+	private AudioSource source;
+
+	void Awake () {
+
+		source = GetComponent<AudioSource>();
+
+	}
+
 	// Use this for initialization
 	void Start () {
 		GUI.FocusControl ("Play");
@@ -27,7 +36,10 @@ public class MainMenu : MonoBehaviour {
 
 	public void OnGUI() {
 		if (Event.current.type == EventType.KeyDown) {
-//			Debug.Log (showLeaderBoardDelay);
+
+			if(navSounds.Length > 0) 
+				source.PlayOneShot (navSounds[Random.Range(0,navSounds.Length)]);
+
 			if (showLeaderboard && showLeaderBoardDelay <= 0) {
 				GUI.enabled = true;
 				showLeaderboard = false;
