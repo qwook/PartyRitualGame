@@ -14,6 +14,7 @@ public class Global : MonoBehaviour {
 	private static string lastSceneName = "";
 	private static float nextLoadBad = 0;
 	private static bool loadLevel = false;
+	public static bool loadBadLevel = false;
 
 //	public static void ResetTimer(float duration = 10.0f) {
 //		timeLeft = duration;
@@ -34,6 +35,7 @@ public class Global : MonoBehaviour {
 		if (Mathf.Ceil ((score - points) / 20) != Mathf.Ceil (score / 20) && Time.time > nextLoadBad) {
 			Debug.Log ("hehz");
 
+			loadBadLevel = true;
 			nextLoadBad = Time.time + 1.5f;
 
 			score -= points;
@@ -96,6 +98,7 @@ public class Global : MonoBehaviour {
 			loadLevel = false;
 			SceneManager.LoadSceneAsync (lastSceneName, LoadSceneMode.Additive);
 			Debug.Log ("kik");
+			loadBadLevel = false;
 		}
 
 		timeCount += Time.deltaTime;
