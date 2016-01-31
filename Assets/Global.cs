@@ -24,7 +24,7 @@ public class Global : MonoBehaviour {
 		score += points;
 	}
 
-	public static int GetScore() {
+	public static float GetScore() {
 		return score;
 	}
 
