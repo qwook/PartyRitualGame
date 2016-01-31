@@ -17,6 +17,8 @@ public class Global : MonoBehaviour {
 
 
 	public static void AddPoints(float points) {
+		score = Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1);
+		Debug.Log (Mathf.Ceil(score/20)*20);
 		score += points;
 	}
 
@@ -56,7 +58,8 @@ public class Global : MonoBehaviour {
 		timeCount += Time.deltaTime;
 		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + timeCount;
 		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
-//		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetFloat("Frame", 1.167f-(score/100)*(5f/6f)*1.167f);
+		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetInteger("Frame", (int)(4-Mathf.Floor(score/100.0f*5.0f)));
+//		Debug.Log (Mathf.Floor(score/100.0f*5));
 //		timeLeft -= Time.deltaTime;
 //		if (timeLeft < 0) {
 //			//
