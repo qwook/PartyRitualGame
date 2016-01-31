@@ -19,8 +19,8 @@ public class Contact : MonoBehaviour {
 		camera = GetComponent<Camera>();
 		checkForContact ();
 
-		if (currentContactLength) {
-		}
+//		if (currentContactLength) {
+//		}
 
 	}
 
