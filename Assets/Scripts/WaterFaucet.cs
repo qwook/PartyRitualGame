@@ -6,6 +6,8 @@ public class WaterFaucet : MonoBehaviour {
 	private ArrayList waterList = new ArrayList();
 	private float step = 0;
 
+	private bool stop = false;
+
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < 10; i++) {
@@ -25,6 +27,9 @@ public class WaterFaucet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (stop)
+			return;
+
 		step += Time.deltaTime;
 
 		int i = 0;
@@ -34,5 +39,11 @@ public class WaterFaucet : MonoBehaviour {
 			position.y = -(i + step) % waterList.Count + 7;
 			water.transform.localPosition = position;
 		}
+
+		if (GameObject.Find ("Hand1").GetComponent<Hand>().IsClean () && GameObject.Find ("Hand2").GetComponent<Hand>().IsClean()) {
+			stop = true;
+			Global.LoadLevel ("Party");
+		}
+
 	}
 }

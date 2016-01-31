@@ -7,7 +7,7 @@ public class Global : MonoBehaviour {
 
 //	private static float timeLeft;
 	private static int difficulty;
-	private static float score;
+	private static float score = 100.0f;
 	private static float timeCount = 0.0f;
 	private static string lastSceneName = "";
 
@@ -21,7 +21,7 @@ public class Global : MonoBehaviour {
 	}
 
 	public static void SubtractPoints(float points) {
-		score += points;
+		score -= points;
 	}
 
 	public static float GetScore() {
@@ -55,6 +55,7 @@ public class Global : MonoBehaviour {
 	void Update () {
 		timeCount += Time.deltaTime;
 		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + timeCount;
+		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
 //		timeLeft -= Time.deltaTime;
 //		if (timeLeft < 0) {
 //			//
