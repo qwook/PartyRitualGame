@@ -85,6 +85,9 @@ public class TableItem : MonoBehaviour {
 		}
 
 		if (goal && (goal.transform.position - transform.position).magnitude < 0.35) {
+
+			Global.AddPoints (10);
+
 			Unselect ();
 			(GameObject.Find("Items").GetComponent<TableHandler>()).SelectNew();
 		}
