@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 110212922}
+  currentContactLength: 0
 --- !u!81 &621889587
 AudioListener:
   m_ObjectHideFlags: 0
@@ -275,8 +276,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   xMin: -30
   xMax: 30
-  yMin: 2
-  yMax: 10
+  yMin: 0
+  yMax: 2
   xSpeed: 20
   ySpeed: 100
 --- !u!1 &873298804
@@ -417,6 +418,8 @@ MonoBehaviour:
   - {fileID: 403426, guid: 92511688fd2524c61a922adb9d25c35d, type: 2}
   - {fileID: 432326, guid: 3b96b5e07350d410e894cd38cf8f7794, type: 2}
   numPartyGoers: 30
+  goodSceneName: Table
+  badSceneName: Handshake
   xMin: -30
   xMax: 30
   yMin: 0
