@@ -12,6 +12,8 @@ public class Global : MonoBehaviour {
 	private static float score = 100.0f;
 	private static float timeCount = 0.0f;
 	private static string lastSceneName = "";
+	private static float nextLoadBad = 0;
+	private static bool loadLevel = false;
 
 //	public static void ResetTimer(float duration = 10.0f) {
 //		timeLeft = duration;
@@ -20,20 +22,50 @@ public class Global : MonoBehaviour {
 
 	public static void AddPoints(float points) {
 		score = Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1);
-//		Debug.Log (Mathf.Ceil(score/20)*20);
+
 		score += points;
+		Debug.Log ("lol2");
 	}
 
 	public static void SubtractPoints(float points) {
-		score -= points;
+		Debug.Log ("lol");
+		Debug.Log (Mathf.Ceil ((score - points) / 20) != Mathf.Ceil (score / 20) && Time.time > nextLoadBad);
+		Debug.Log ("sup");
+		if (Mathf.Ceil ((score - points) / 20) != Mathf.Ceil (score / 20) && Time.time > nextLoadBad) {
+			Debug.Log ("hehz");
+
+			nextLoadBad = Time.time + 1.5f;
+
+			score -= points;
+			Debug.Log ("test");
+//			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
+//			animator.SetTrigger ("Pop");
+			LoadBadLevel ();
+			Debug.Log ("test2");
+		} else {
+			score -= points;
+		}
 	}
 
 	public static float GetScore() {
+		Debug.Log ("lulz");
 		return score;
 	}
 
 	public static int GetDifficulty() {
+		Debug.Log ("yup");
 		return difficulty;
+	}
+
+	public static void LoadBadLevel() {
+		Debug.Log ("hahaha");
+		if (lastSceneName == "Bathroom") {
+			Debug.Log ("mmm");
+			LoadLevel ("Party");
+		} else if (lastSceneName == "Party") {
+			Debug.Log ("mmm2");
+			LoadLevel ("Handshake");
+		}
 	}
 
 	public static void LoadNextLevel() {
@@ -41,13 +73,14 @@ public class Global : MonoBehaviour {
 	}
 
 	public static void LoadLevel(string sceneName) {
+		Debug.Log ("zzz");
 		if (lastSceneName != "") {
 			Debug.Log ("unloading scene" + lastSceneName);
 			SceneManager.UnloadScene(lastSceneName);
 		}
-		SceneManager.LoadScene (sceneName, LoadSceneMode.Additive);
+		Debug.Log ("aaa");
 		lastSceneName = sceneName;
-
+		loadLevel = true;
 		difficulty += 1;
 	}
 
@@ -58,10 +91,17 @@ public class Global : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (loadLevel) {
+			Debug.Log ("kek");
+			loadLevel = false;
+			SceneManager.LoadSceneAsync (lastSceneName, LoadSceneMode.Additive);
+			Debug.Log ("kik");
+		}
+
 		timeCount += Time.deltaTime;
 		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + timeCount;
 		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
-		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetInteger("Frame", (int)(4-Mathf.Floor(score/100.0f*5.0f)));
+		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetInteger("Frame", (int)(5-Mathf.Ceil(score/100.0f*5.0f)));
 //		Debug.Log (Mathf.Floor(score/100.0f*5));
 //		timeLeft -= Time.deltaTime;
 //		if (timeLeft < 0) {

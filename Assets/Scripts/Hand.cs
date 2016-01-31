@@ -51,7 +51,7 @@ public class Hand : MonoBehaviour {
 			Global.SubtractPoints (Time.deltaTime*3f);
 		}
 
-		Debug.Log (dirtiness);
+//		Debug.Log (dirtiness);
 	}
 
 }
