@@ -15,6 +15,8 @@ public class Global : MonoBehaviour {
 	private static float nextLoadBad = 0;
 	private static bool loadLevel = false;
 	public static bool loadBadLevel = false;
+	private static bool lost = false;
+	public float lostDelay = 1.0f;
 
 //	public static void ResetTimer(float duration = 10.0f) {
 //		timeLeft = duration;
@@ -44,6 +46,11 @@ public class Global : MonoBehaviour {
 			Debug.Log ("test2");
 		} else {
 			score -= points;
+		}
+
+		if (score <= 0 && !lost) {
+			lost = true;
+			GameObject.Find ("Canvas").GetComponent<Animator> ().SetTrigger ("Lose");
 		}
 	}
 
@@ -86,6 +93,16 @@ public class Global : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		score = 100.0f;
+		timeCount = 0.0f;
+		lastSceneName = "";
+		nextLoadBad = 0;
+		loadLevel = false;
+		loadBadLevel = false;
+		lost = false;
+		lostDelay = 1.0f;
+
 		LoadLevel (firstScene);
 	}
 	
@@ -99,8 +116,17 @@ public class Global : MonoBehaviour {
 			loadBadLevel = false;
 		}
 
-		timeCount += Time.deltaTime;
-		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + timeCount;
+		if (!lost) {
+			timeCount += Time.deltaTime;
+		} else {
+			lostDelay -= Time.deltaTime;
+			if (lostDelay <= 0) {
+				if (Input.anyKeyDown) {
+					SceneManager.LoadScene ("MainMenu");
+				}
+			}
+		}
+		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + Mathf.Floor(timeCount*10)/10 + "s";
 		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
 		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetInteger("Frame", (int)(5-Mathf.Ceil(score/100.0f*5.0f)));
 //		Debug.Log (Mathf.Floor(score/100.0f*5));

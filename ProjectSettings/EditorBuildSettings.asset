@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
     path: Assets/Scenes/Bathroom.unity
   - enabled: 1
     path: Assets/Scenes/GlobalGame.unity
@@ -16,4 +18,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Table.unity
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Loser.unity
