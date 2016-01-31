@@ -17,6 +17,8 @@ public class Rail : MonoBehaviour {
 	private bool ended = false;
 	private bool checking = false;
 
+	public float cameraAngle = 0.0f;
+
 	// Use this for initialization
 	void Start () {
 		currentRound = rounds [round++].GetComponent<Round> ();
@@ -28,14 +30,25 @@ public class Rail : MonoBehaviour {
 	void Update () {
 		float input = Input.GetAxis ("Horizontal");
 
+		float goalYaw = 0.0f;
+
 		if (input > 0.2f) {
 			choice = "right";
+			goalYaw = 15.7777f;
 		} else if (input < -0.2f) {
 			choice = "left";
+			goalYaw = -15.7777f;
 		} else {
 			choice = "none";
 		}
 		currentRound.select (choice);
+
+		cameraAngle += (goalYaw - cameraAngle) * 0.15f;
+		Quaternion angles = transform.localRotation;
+		Vector3 eulerAngle = angles.eulerAngles;
+		eulerAngle.y = cameraAngle;
+		angles.eulerAngles = eulerAngle;
+		transform.localRotation = angles;
 
 		if (ended) {
 			ended = false;
