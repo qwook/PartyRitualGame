@@ -21,3 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Loser.unity
   - enabled: 1
     path: Assets/Scenes/PartyRail.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro1.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro2.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro3.unity
