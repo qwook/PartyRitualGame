@@ -29,7 +29,7 @@ public class Rail : MonoBehaviour {
 	void Start () {
 //		currentRound = rounds [round++].GetComponent<Round> ();
 		animator = GetComponent<Animator>();
-		float speedUp = (Global.GetDifficulty () / 16) ;
+		float speedUp = (Global.GetDifficulty () / 10) ;
 		animator.speed = 1f + speedUp;
 
 //		animator.speed = 10;	
