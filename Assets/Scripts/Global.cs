@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Global : MonoBehaviour {
 
+	public static Global one;
+
 	public string firstScene = "";
 
 //	private static float timeLeft;
@@ -18,32 +20,32 @@ public class Global : MonoBehaviour {
 	private static bool lost = false;
 	public float lostDelay = 1.0f;
 
+	public GameObject minusPrefab;
+	public GameObject plusPrefab;
+
+	public static float nextContinuousDroplet = 0.0f;
+
+	public static float lastScore = 100.0f;
+
 //	public static void ResetTimer(float duration = 10.0f) {
 //		timeLeft = duration;
 //	}
 
 
 	public static void AddPoints(float points) {
-		score = Mathf.Min(Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1), 100);
-		Debug.Log ("lol2");
+		score = Mathf.Min(Mathf.Min (score + points, Mathf.Ceil(score/20)*20), 100);
 	}
 
 	public static void SubtractPoints(float points) {
-		Debug.Log ("lol");
-		Debug.Log (Mathf.Ceil ((score - points) / 20) != Mathf.Ceil (score / 20) && Time.time > nextLoadBad);
-		Debug.Log ("sup");
 		if (Mathf.Ceil ((score - points) / 20) != Mathf.Ceil (score / 20) && Time.time > nextLoadBad) {
-			Debug.Log ("hehz");
 
 			loadBadLevel = true;
 			nextLoadBad = Time.time + 1.5f;
 
 			score -= points;
-			Debug.Log ("test");
 			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
 			animator.SetTrigger ("Pop");
 			LoadBadLevel ();
-			Debug.Log ("test2");
 		} else {
 			score -= points;
 		}
@@ -55,22 +57,17 @@ public class Global : MonoBehaviour {
 	}
 
 	public static float GetScore() {
-		Debug.Log ("lulz");
 		return score;
 	}
 
 	public static int GetDifficulty() {
-		Debug.Log ("yup");
 		return difficulty;
 	}
 
 	public static void LoadBadLevel() {
-		Debug.Log ("hahaha");
 		if (lastSceneName == "Bathroom") {
-			Debug.Log ("mmm");
 			LoadLevel ("Party");
 		} else if (lastSceneName == "Party") {
-			Debug.Log ("mmm2");
 			LoadLevel ("Handshake");
 		}
 	}
@@ -80,12 +77,9 @@ public class Global : MonoBehaviour {
 	}
 
 	public static void LoadLevel(string sceneName) {
-		Debug.Log ("zzz");
 		if (lastSceneName != "") {
-			Debug.Log ("unloading scene" + lastSceneName);
 			SceneManager.UnloadScene(lastSceneName);
 		}
-		Debug.Log ("aaa");
 		lastSceneName = sceneName;
 		loadLevel = true;
 		difficulty += 1;
@@ -93,6 +87,7 @@ public class Global : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		one = this;
 
 		score = 100.0f;
 		timeCount = 0.0f;
@@ -103,16 +98,16 @@ public class Global : MonoBehaviour {
 		lost = false;
 		lostDelay = 1.0f;
 
+		lastScore = 100.0f;
+
 		LoadLevel (firstScene);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (loadLevel) {
-			Debug.Log ("kek");
 			loadLevel = false;
 			SceneManager.LoadSceneAsync (lastSceneName, LoadSceneMode.Additive);
-			Debug.Log ("kik");
 			loadBadLevel = false;
 		}
 
@@ -134,5 +129,37 @@ public class Global : MonoBehaviour {
 //		if (timeLeft < 0) {
 //			//
 //		}
+
+		// droplet stuff
+
+
+		if (Time.fixedTime > nextContinuousDroplet) {
+			nextContinuousDroplet = Time.fixedTime + 0.15f;
+
+			float difference = score - lastScore;
+			Debug.Log (difference);
+
+			if (difference < -0.1) {
+				GameObject droplet = Instantiate (one.minusPrefab);
+				droplet.transform.SetParent (GameObject.Find ("Canvas/EmotionSpawner").transform);
+				droplet.transform.localPosition = new Vector3 (0, 0, -1);
+				droplet.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+
+				if (difference < -1) {
+					droplet.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+				} else if (difference < -5) {
+					droplet.transform.localScale = new Vector3 (2.5f, 2.5f, 2.5f);
+				}
+			} else if (difference > 0.1) {
+				GameObject droplet = Instantiate (one.plusPrefab);
+				droplet.transform.SetParent (GameObject.Find ("Canvas/EmotionSpawner").transform);
+				droplet.transform.localPosition = new Vector3 (0, 0, -1);
+				if (difference > 5) {
+					droplet.transform.localScale = new Vector3 (2.5f, 2.5f, 2.5f);
+				}
+			}
+
+			lastScore = score;
+		}
 	}
 }

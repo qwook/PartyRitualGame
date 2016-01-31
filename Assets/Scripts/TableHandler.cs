@@ -39,8 +39,6 @@ public class TableHandler : MonoBehaviour {
 
 		cameraVelocity -= (cameraVelocity.normalized * Time.deltaTime*3);
 
-		Debug.Log((5.0f - intensity)/40);
-
 		if (Time.time > nextPunch) {
 			nextPunch = Time.time + (5.0f - intensity)/40;
 			cameraVelocity = Random.onUnitSphere * (intensity)/10;
