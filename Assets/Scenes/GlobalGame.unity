@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6020eba6777ac40439f1f70bf2e555ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: Table
+  firstScene: PartyRail
   lostDelay: 1
   minusPrefab: {fileID: 152330, guid: 26744c46d20ba41a2a9348c05f507ded, type: 2}
   plusPrefab: {fileID: 114272, guid: ee989c3b7da944902a72fc9039cf5baf, type: 2}
