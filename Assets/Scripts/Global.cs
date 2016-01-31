@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Global : MonoBehaviour {
 
+	public string firstScene = "";
+
 //	private static float timeLeft;
 	private static int difficulty;
 	private static float score = 100.0f;
@@ -18,7 +20,7 @@ public class Global : MonoBehaviour {
 
 	public static void AddPoints(float points) {
 		score = Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1);
-		Debug.Log (Mathf.Ceil(score/20)*20);
+//		Debug.Log (Mathf.Ceil(score/20)*20);
 		score += points;
 	}
 
@@ -40,6 +42,7 @@ public class Global : MonoBehaviour {
 
 	public static void LoadLevel(string sceneName) {
 		if (lastSceneName != "") {
+			Debug.Log ("unloading scene" + lastSceneName);
 			SceneManager.UnloadScene(lastSceneName);
 		}
 		SceneManager.LoadScene (sceneName, LoadSceneMode.Additive);
@@ -50,7 +53,7 @@ public class Global : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		LoadLevel ("Bathroom");
+		LoadLevel (firstScene);
 	}
 	
 	// Update is called once per frame

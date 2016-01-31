@@ -25,7 +25,7 @@ public class Contact : MonoBehaviour {
 
 		if (currentContactLength >= lookThreshold) {
 			Global.SubtractPoints (0.5f);
-		} else if (spriteInContact.color == Color.green) {
+		} else if (spriteInContact != null && spriteInContact.color == Color.green) {
 			Global.AddPoints (0.5f);
 		}
 
