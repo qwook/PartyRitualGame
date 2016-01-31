@@ -14,6 +14,8 @@ public class Rail : MonoBehaviour {
 //	private string choice;
 	private Round currentRound;
 
+	private Animator animator;
+
 //	private bool ended = false;
 //	private bool checking = false;
 
@@ -26,6 +28,11 @@ public class Rail : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //		currentRound = rounds [round++].GetComponent<Round> ();
+		animator = GetComponent<Animator>();
+		float speedUp = (Global.GetDifficulty () / 16) ;
+		animator.speed = 1f + speedUp;
+
+//		animator.speed = 10;	
 	}
 
 	
