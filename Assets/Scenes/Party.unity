@@ -273,11 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b092b8bd9af2f46cfb77c8b669b9789e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  camera: {fileID: 621889590}
   xMin: -30
   xMax: 30
-  yMin: 0
-  yMax: 2
+  yMin: 8
+  yMax: 12
   xSpeed: 20
   ySpeed: 100
 --- !u!1 &873298804
@@ -422,8 +422,8 @@ MonoBehaviour:
   badSceneName: Handshake
   xMin: -30
   xMax: 30
-  yMin: 0
-  yMax: 2
+  yMin: 6
+  yMax: 9
   zMin: 10
   zMax: 16
 --- !u!1 &2057058790

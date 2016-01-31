@@ -24,7 +24,7 @@ public class Partier : MonoBehaviour {
 		faceAwayTime = Random.Range(2,6);
 
 		//set next facePlayerTime to a random val
-		facePlayerTime = Random.Range(0.5f,4);
+		facePlayerTime = Random.Range(1f,8f);
 	}
 	
 	// Update is called once per frame

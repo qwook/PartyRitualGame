@@ -8,6 +8,10 @@ public class Contact : MonoBehaviour {
 
 	SpriteRenderer spriteInContact;
 	public float currentContactLength = 0f;
+	public float lookThreshold = 0.5f;
+
+	public float addPoints = 0.5f;
+	public float subPoints = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +23,11 @@ public class Contact : MonoBehaviour {
 		camera = GetComponent<Camera>();
 		checkForContact ();
 
-//		if (currentContactLength) {
-//		}
+		if (currentContactLength >= lookThreshold) {
+			Global.SubtractPoints (0.5f);
+		} else if (spriteInContact.color == Color.green) {
+			Global.AddPoints (0.5f);
+		}
 
 	}
 
@@ -54,7 +61,7 @@ public class Contact : MonoBehaviour {
 				if (spriteInContact)
 					spriteInContact.color = Color.white;
 				newSpriteInContact.color = Color.green;
-				currentContactLength = 0;
+
 			}
 
 			spriteInContact = newSpriteInContact;
