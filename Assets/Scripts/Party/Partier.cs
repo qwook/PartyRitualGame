@@ -8,6 +8,7 @@ public class Partier : MonoBehaviour {
 	public float faceAwayTime = 5.0f; //The time (in secs) Partier faces away from the screen.
 
 	public bool facing = false;
+	public bool finishedFacing = false;
 
 	private float lastTurnTime;
 
@@ -16,6 +17,7 @@ public class Partier : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
+
 		lastTurnTime = Time.time;
 
 		//set next faceAwayTime to a random val
@@ -23,11 +25,11 @@ public class Partier : MonoBehaviour {
 
 		//set next facePlayerTime to a random val
 		facePlayerTime = Random.Range(0.5f,4);
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		float timePassed = Time.time - lastTurnTime;
 
 		if (!facing) {
@@ -41,9 +43,13 @@ public class Partier : MonoBehaviour {
 				animator.SetTrigger("UnFacePlayer");
 				facing = false;
 				lastTurnTime = Time.time;
-
+				finishedFacing = false;
 			}
 		}
+	}
+
+	public void transitionToFacing(bool f) {
+		this.finishedFacing = f;
 	}
 
 	

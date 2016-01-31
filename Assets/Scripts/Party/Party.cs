@@ -11,8 +11,6 @@ public class Party : MonoBehaviour {
 	public int zMin = 10, zMax = 15;
 
 
-
-	// Use this for initialization
 	void Start () {
 		int position;
 		int x;
@@ -24,7 +22,6 @@ public class Party : MonoBehaviour {
 			x = Random.Range (xMin, xMax);
 			y = Random.Range (yMin, yMax);
 			z = Random.Range (zMin, zMax);
-
 
 			Instantiate(partyGoers[position], new Vector3(x, y, z), Quaternion.identity);
 		}
