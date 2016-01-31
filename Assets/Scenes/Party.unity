@@ -194,6 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle: {fileID: 110212922}
   currentContactLength: 0
+  lookThreshold: 0.5
+  addPoints: 0.5
+  subPoints: 0.5
 --- !u!81 &621889587
 AudioListener:
   m_ObjectHideFlags: 0
@@ -396,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967626184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.27, y: 5.7472, z: 14.92}
+  m_LocalPosition: {x: 12.27, y: 5.7472, z: 18.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -417,7 +420,7 @@ MonoBehaviour:
   - {fileID: 420200, guid: 1a8722c0bc8ed4f14b135e30b3d5c7c0, type: 2}
   - {fileID: 403426, guid: 92511688fd2524c61a922adb9d25c35d, type: 2}
   - {fileID: 432326, guid: 3b96b5e07350d410e894cd38cf8f7794, type: 2}
-  numPartyGoers: 30
+  numPartyGoers: 10
   goodSceneName: Table
   badSceneName: Handshake
   xMin: -30

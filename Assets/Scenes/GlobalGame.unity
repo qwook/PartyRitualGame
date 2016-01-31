@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6020eba6777ac40439f1f70bf2e555ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: Bathroom
+  firstScene: PartyRail
 --- !u!4 &1106567059
 Transform:
   m_ObjectHideFlags: 0
