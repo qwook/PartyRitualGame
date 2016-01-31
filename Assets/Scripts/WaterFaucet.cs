@@ -31,7 +31,7 @@ public class WaterFaucet : MonoBehaviour {
 		foreach (GameObject water in waterList) {
 			i++;
 			Vector3 position = water.transform.localPosition;
-			position.y = -(i + step) % waterList.Count;
+			position.y = -(i + step) % waterList.Count + 7;
 			water.transform.localPosition = position;
 		}
 	}
