@@ -18,9 +18,11 @@ public class TableHandler : MonoBehaviour {
 		foreach (TableItem item in GetComponentsInChildren<TableItem> ()) {
 			if (item.isGucci ()) {
 				item.Select ();
-				break;
+				return;
 			}
 		}
+
+		Global.LoadLevel ("Party");
 	}
 	
 	// Update is called once per frame
@@ -41,10 +43,12 @@ public class TableHandler : MonoBehaviour {
 
 		if (Time.time > nextPunch) {
 			nextPunch = Time.time + (5.0f - intensity)/40;
-			cameraVelocity = Random.onUnitSphere * (intensity)/5;
+			cameraVelocity = Random.onUnitSphere * (intensity)/10;
 		}
 
 		Camera.main.transform.position += cameraVelocity * Time.deltaTime * 10;
+
+		Global.SubtractPoints (Time.deltaTime*3f*intensity);
 
 //		Camera.main.transform.position = cameraHome + new Vector3 (Mathf.Cos((Mathf.Sin(Time.time*(10*intensity))-Mathf.Cos(Time.time*(2*intensity)))*Mathf.PI*2)*0.2f, 0, Mathf.Sin((Mathf.Cos(Time.time*(11*intensity))-Mathf.Sin(Time.time*(2*intensity)))*Mathf.PI*2)*0.2f);
 	}

@@ -22,7 +22,7 @@ public class Global : MonoBehaviour {
 
 
 	public static void AddPoints(float points) {
-		score = Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1);
+		score = Mathf.Min(Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1), 100);
 
 		score += points;
 		Debug.Log ("lol2");
@@ -40,8 +40,8 @@ public class Global : MonoBehaviour {
 
 			score -= points;
 			Debug.Log ("test");
-//			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
-//			animator.SetTrigger ("Pop");
+			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
+			animator.SetTrigger ("Pop");
 			LoadBadLevel ();
 			Debug.Log ("test2");
 		} else {
