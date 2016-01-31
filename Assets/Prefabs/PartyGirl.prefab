@@ -72,9 +72,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.5754753
-  m_Height: 6.88736
+  m_Height: 8.550411
   m_Direction: 1
-  m_Center: {x: -0.65, y: 0.78, z: 0}
+  m_Center: {x: -0.42, y: -0.12, z: 0}
 --- !u!212 &21202012
 SpriteRenderer:
   m_ObjectHideFlags: 1
