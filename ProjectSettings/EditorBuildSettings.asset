@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Bathroom.unity
+  - enabled: 1
+    path: Assets/Scenes/GlobalGame.unity
+  - enabled: 1
+    path: Assets/Scenes/Handshake.unity
+  - enabled: 1
+    path: Assets/Scenes/Party.unity
+  - enabled: 1
+    path: Assets/Scenes/Table.unity
