@@ -6,9 +6,13 @@ public class IncomingHand : MonoBehaviour {
 	public Sprite[] sprites;
 	private bool gucci = false;
 
+	Animator animator;
+
 	// Use this for initialization
 	void Start () {
-	
+		animator = GetComponent<Animator> ();
+		animator.speed = 1f + (float) Global.GetDifficulty ()/16;
+
 	}
 	
 	// Update is called once per frame
