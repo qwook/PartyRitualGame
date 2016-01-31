@@ -13,7 +13,9 @@ public class IncomingHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (gucci) {
+			Global.LoadLevel ("Bathroom");
+		}
 	}
 
 	public void GetHandSprite() {
@@ -29,8 +31,7 @@ public class IncomingHand : MonoBehaviour {
 	public void Shake() {
 		if (GameObject.Find ("MyFist").GetComponent<SpriteRenderer> ().sprite == this.GetComponent<SpriteRenderer> ().sprite) {
 			GameObject.Find ("Result").GetComponent<Animator>().SetTrigger("Good");
-			Global.SubtractPoints (20);
-			gucci = true;
+			Global.AddPoints (20);
 		} else {
 			GameObject.Find ("Result").GetComponent<Animator>().SetTrigger("Bad");
 			Global.SubtractPoints (20);
@@ -38,8 +39,6 @@ public class IncomingHand : MonoBehaviour {
 	}
 
 	public void End() {
-		if (gucci) {
-			Global.LoadLevel ("Bathroom");
-		}
+		gucci = true;
 	}
 }

@@ -40,8 +40,8 @@ public class Global : MonoBehaviour {
 
 			score -= points;
 			Debug.Log ("test");
-//			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
-//			animator.SetTrigger ("Pop");
+			Animator animator = GameObject.Find ("Canvas/Emotion").GetComponent<Animator> ();
+			animator.SetTrigger ("Pop");
 			LoadBadLevel ();
 			Debug.Log ("test2");
 		} else {

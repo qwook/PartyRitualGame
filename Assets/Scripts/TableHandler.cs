@@ -18,9 +18,11 @@ public class TableHandler : MonoBehaviour {
 		foreach (TableItem item in GetComponentsInChildren<TableItem> ()) {
 			if (item.isGucci ()) {
 				item.Select ();
-				break;
+				return;
 			}
 		}
+
+		Global.LoadLevel ("Party");
 	}
 	
 	// Update is called once per frame
@@ -41,7 +43,7 @@ public class TableHandler : MonoBehaviour {
 
 		if (Time.time > nextPunch) {
 			nextPunch = Time.time + (5.0f - intensity)/40;
-			cameraVelocity = Random.onUnitSphere * (intensity)/5;
+			cameraVelocity = Random.onUnitSphere * (intensity)/10;
 		}
 
 		Camera.main.transform.position += cameraVelocity * Time.deltaTime * 10;
