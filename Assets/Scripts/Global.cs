@@ -122,7 +122,7 @@ public class Global : MonoBehaviour {
 			}
 		}
 		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + Mathf.Floor(timeCount*10)/10 + "s";
-		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
+//		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
 		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetInteger("Frame", (int)(5-Mathf.Ceil(score/100.0f*5.0f)));
 //		Debug.Log (Mathf.Floor(score/100.0f*5));
 //		timeLeft -= Time.deltaTime;
@@ -137,7 +137,6 @@ public class Global : MonoBehaviour {
 			nextContinuousDroplet = Time.fixedTime + 0.15f;
 
 			float difference = score - lastScore;
-			Debug.Log (difference);
 
 			if (difference < -0.1) {
 				GameObject droplet = Instantiate (one.minusPrefab);
@@ -145,10 +144,10 @@ public class Global : MonoBehaviour {
 				droplet.transform.localPosition = new Vector3 (0, 0, -1);
 				droplet.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
 
-				if (difference < -1) {
-					droplet.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
-				} else if (difference < -5) {
+				if (difference < -5) {
 					droplet.transform.localScale = new Vector3 (2.5f, 2.5f, 2.5f);
+				} else if (difference < -1) {
+					droplet.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
 				}
 			} else if (difference > 0.1) {
 				GameObject droplet = Instantiate (one.plusPrefab);
