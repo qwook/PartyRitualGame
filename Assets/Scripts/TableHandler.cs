@@ -22,7 +22,7 @@ public class TableHandler : MonoBehaviour {
 			}
 		}
 
-		Global.LoadLevel ("Party");
+		Global.LoadLevel ("PartyRail");
 	}
 	
 	// Update is called once per frame
