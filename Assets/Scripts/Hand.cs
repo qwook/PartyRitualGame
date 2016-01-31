@@ -24,6 +24,8 @@ public class Hand : MonoBehaviour {
 		} else {
 			this.transform.position = Vector3.Lerp(this.transform.position, home, 0.2f);
 		}
+
+		Global.SubtractPoints (Time.deltaTime);
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -37,10 +39,12 @@ public class Hand : MonoBehaviour {
 	void OnTriggerStay(Collider other) {
 		if (other.CompareTag("CleanWater")) {
 			dirtiness = Mathf.Max(dirtiness - Time.deltaTime*50f, 0f);
+			Global.AddPoints (Time.deltaTime*5f);
 		}
 			
 		if (other.CompareTag("DirtyWater")) {
 			dirtiness = Mathf.Min(dirtiness + Time.deltaTime*50f, 100f);
+			Global.SubtractPoints (Time.deltaTime*3f);
 		}
 
 		Debug.Log (dirtiness);

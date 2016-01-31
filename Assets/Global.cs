@@ -7,7 +7,7 @@ public class Global : MonoBehaviour {
 
 //	private static float timeLeft;
 	private static int difficulty;
-	private static int score;
+	private static float score;
 	private static float timeCount = 0.0f;
 	private static string lastSceneName = "";
 
@@ -16,11 +16,11 @@ public class Global : MonoBehaviour {
 //	}
 
 
-	public static void AddPoints(int points) {
+	public static void AddPoints(float points) {
 		score += points;
 	}
 
-	public static void SubtractPoints(int points) {
+	public static void SubtractPoints(float points) {
 		score += points;
 	}
 
