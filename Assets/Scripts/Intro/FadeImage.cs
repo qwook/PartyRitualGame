@@ -25,7 +25,9 @@ public class FadeImage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.anyKeyDown ) {
+			loadNextScene ();
+		}
 		if (!fadedIn) {
 			fadeIn ();
 		} else if (!waited) {
@@ -66,7 +68,11 @@ public class FadeImage : MonoBehaviour {
 
 		if (sprite.color.b <= 0) {
 			Debug.Log ("supppers");
-			SceneManager.LoadScene (nextLevel, LoadSceneMode.Single);
+			loadNextScene ();
 		}
+	}
+
+	void loadNextScene() {
+		SceneManager.LoadScene (nextLevel, LoadSceneMode.Single);
 	}
 }
