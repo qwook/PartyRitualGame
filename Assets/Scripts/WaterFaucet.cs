@@ -27,6 +27,9 @@ public class WaterFaucet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Global.loadBadLevel)
+			return;
+		
 		if (stop)
 			return;
 
