@@ -52,6 +52,7 @@ public class Rail : MonoBehaviour {
 
 		if (ended) {
 			ended = false;
+//			Global.LoadLevel ("PartyRail");
 			Global.LoadLevel ("Handshake");
 		}
 
@@ -62,9 +63,7 @@ public class Rail : MonoBehaviour {
 	}
 
 	public void check() {
-		
-		Debug.Log ("Check");
-		Debug.Log ("choice " + choice);
+
 		bool success = currentRound.check (choice);
 
 		if (success == true) {
@@ -72,8 +71,12 @@ public class Rail : MonoBehaviour {
 		} else {
 			if (choice == "none")
 				Global.SubtractPoints (10);
-			else
+			else {
 				Global.SubtractPoints (5);
+				ended = true;
+				Global.LoadLevel ("Handshake");
+			}
+
 		}
 			
 	}
@@ -85,6 +88,7 @@ public class Rail : MonoBehaviour {
 	public void endCheck() {
 		currentRound = rounds [round++].GetComponent<Round> ();
 		checking = false;
+
 	}
 
 	public void activate() {

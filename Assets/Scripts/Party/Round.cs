@@ -52,7 +52,8 @@ public class Round : MonoBehaviour {
 	}
 
 	public bool check(string s) {
-		if (s == side) {
+		Debug.Log (s + " = " + side); 
+		if (s != side && s != "none") {
 			hightlight (s, Color.green);
 			return true;
 		} else {

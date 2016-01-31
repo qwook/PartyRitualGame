@@ -261,8 +261,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
-    functionName: check
+  - time: 0.8333333
+    functionName: startCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0166667
+    functionName: endCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -275,8 +282,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2
-    functionName: check
+  - time: 1.8666667
+    functionName: startCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0166667
+    functionName: endCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -284,6 +298,20 @@ AnimationClip:
     messageOptions: 0
   - time: 2.3166666
     functionName: activate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.8166666
+    functionName: startCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3
+    functionName: endCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
