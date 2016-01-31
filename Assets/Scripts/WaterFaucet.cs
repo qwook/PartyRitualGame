@@ -45,7 +45,7 @@ public class WaterFaucet : MonoBehaviour {
 
 		if (GameObject.Find ("Hand1").GetComponent<Hand>().IsClean () && GameObject.Find ("Hand2").GetComponent<Hand>().IsClean()) {
 			stop = true;
-			Global.LoadLevel ("Table");
+			Global.LoadLevel ("PartyRail");
 		}
 
 	}

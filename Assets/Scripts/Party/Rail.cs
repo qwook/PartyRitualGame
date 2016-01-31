@@ -135,7 +135,7 @@ public class Rail : MonoBehaviour {
 	}
 
 	public void end() {
-		Global.LoadLevel ("Handshake");
+		Global.LoadLevel ("Table");
 //		ended = true;
 //		Debug.Log ("end");
 	}

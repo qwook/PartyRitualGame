@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour {
 	public float hideLeaderBoardDelay = 0.5f;
 	public bool showLeaderboard = false;
 
+//	public AudioClip mainMenuSong;
+
 	public AudioClip[] navSounds;
 	private AudioSource source;
 
@@ -21,6 +23,7 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GUI.FocusControl ("Play");
+//		source.Play (mainMenuSong);
 	}
 	
 	// Update is called once per frame
