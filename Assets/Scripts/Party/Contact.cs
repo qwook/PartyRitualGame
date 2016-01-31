@@ -7,6 +7,7 @@ public class Contact : MonoBehaviour {
 	public GameObject circle;
 
 	SpriteRenderer spriteInContact;
+	public float currentContactLength = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -36,19 +37,21 @@ public class Contact : MonoBehaviour {
 
 				//increase intensity of contact
 				if (spriteInContact == newSpriteInContact) {
-					spriteInContact.color = new Color (255, 0, 0, spriteInContact.color.a + 5);
+					currentContactLength+=.01f;
+					spriteInContact.color = new Color (1.0f, 1.0f - currentContactLength, 1.0f - currentContactLength, 1.0f);
 				} else {
 					//we have a new person in contact
 					if (spriteInContact)
 						spriteInContact.color = Color.white;
-					newSpriteInContact.color = new Color (255, 0, 0, 100);
-
+					newSpriteInContact.color = new Color (1.0f, 0, 0, 1.0f);
+					currentContactLength = 0;
 				}
 			} else {
 				//not making eye contact
 				if (spriteInContact)
 					spriteInContact.color = Color.white;
 				newSpriteInContact.color = Color.green;
+				currentContactLength = 0;
 			}
 
 			spriteInContact = newSpriteInContact;

@@ -6,6 +6,11 @@ public class Party : MonoBehaviour {
 	public Transform[] partyGoers;
 	public int numPartyGoers = 5;
 
+	public string goodSceneName = "Table";
+	public string badSceneName = "Handshake";
+
+
+
 	public int xMin = -50, xMax = 50;
 	public int yMin = -20, yMax = 20;
 	public int zMin = 10, zMax = 15;
