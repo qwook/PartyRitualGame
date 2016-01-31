@@ -13,6 +13,10 @@ public class Hand : MonoBehaviour {
 		home = this.transform.position;
 	}
 
+	public bool IsClean() {
+		return dirtiness <= 0;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		GameObject dirty = this.transform.FindChild ("DirtyHand").gameObject;
