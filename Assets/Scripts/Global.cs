@@ -66,8 +66,8 @@ public class Global : MonoBehaviour {
 
 	public static void LoadBadLevel() {
 		if (lastSceneName == "Bathroom") {
-			LoadLevel ("Party");
-		} else if (lastSceneName == "Party") {
+			LoadLevel ("PartyRail");
+		} else if (lastSceneName == "PartyRail") {
 			LoadLevel ("Handshake");
 		}
 	}
