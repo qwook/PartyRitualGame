@@ -59,7 +59,7 @@ public class Rail : MonoBehaviour {
 
 	public void end() {
 		Debug.Log ("end");
-		SceneManager.LoadScene ("Handshake", LoadSceneMode.Single);
+		Global.LoadLevel ("Handshake");
 	}
 	
 }
