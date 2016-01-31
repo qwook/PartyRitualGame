@@ -627,10 +627,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11418508, guid: 51a13456d41ca41d294c8ffdc3874fd7, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51a13456d41ca41d294c8ffdc3874fd7, type: 2}
   m_IsPrefabParent: 0
@@ -825,8 +821,7 @@ MonoBehaviour:
   - {fileID: 1678030763}
   - {fileID: 550448622}
   - {fileID: 1489470447}
-  groupDistanceFromCamera: 22
-  numRounds: 3
+  lastSide: 
   cameraAngle: 0
 --- !u!81 &1826383783
 AudioListener:
@@ -951,18 +946,6 @@ Prefab:
     - target: {fileID: 412360, guid: 52d2071e9fa6b47e38d59851fac7b512, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 461348, guid: 52d2071e9fa6b47e38d59851fac7b512, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 451008, guid: 52d2071e9fa6b47e38d59851fac7b512, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472590, guid: 52d2071e9fa6b47e38d59851fac7b512, type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52d2071e9fa6b47e38d59851fac7b512, type: 2}
