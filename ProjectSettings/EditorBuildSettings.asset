@@ -17,3 +17,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Table.unity
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro1.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro2.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro3.unity

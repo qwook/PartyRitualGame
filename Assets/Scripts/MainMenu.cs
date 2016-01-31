@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void PlaySelected() {
 		
-		SceneManager.LoadScene ("GlobalGame", LoadSceneMode.Single);
+		SceneManager.LoadScene ("Intro1", LoadSceneMode.Single);
 	}
 
 	public void LeaderBoardSelected() {
