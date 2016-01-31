@@ -13,6 +13,7 @@ public class Global : MonoBehaviour {
 	private static int difficulty;
 	private static float score = 100.0f;
 	private static float timeCount = 0.0f;
+	private static string unloadSceneName = "";
 	private static string lastSceneName = "";
 	private static float nextLoadBad = 0;
 	private static bool loadLevel = false;
@@ -77,9 +78,7 @@ public class Global : MonoBehaviour {
 	}
 
 	public static void LoadLevel(string sceneName) {
-		if (lastSceneName != "") {
-			SceneManager.UnloadScene(lastSceneName);
-		}
+		unloadSceneName = lastSceneName;
 		lastSceneName = sceneName;
 		loadLevel = true;
 		difficulty += 1;
@@ -106,6 +105,9 @@ public class Global : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (loadLevel) {
+			if (lastSceneName != "") {
+				SceneManager.UnloadScene(unloadSceneName);
+			}
 			loadLevel = false;
 			SceneManager.LoadSceneAsync (lastSceneName, LoadSceneMode.Additive);
 			loadBadLevel = false;
