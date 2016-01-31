@@ -56,6 +56,7 @@ public class Global : MonoBehaviour {
 		timeCount += Time.deltaTime;
 		GameObject.Find ("Canvas/Time").GetComponent<Text>().text = "" + timeCount;
 		GameObject.Find ("Canvas/Score").GetComponent<Text>().text = "" + score;
+//		GameObject.Find ("Canvas/Emotion").GetComponent<Animator>().SetFloat("Frame", 1.167f-(score/100)*(5f/6f)*1.167f);
 //		timeLeft -= Time.deltaTime;
 //		if (timeLeft < 0) {
 //			//

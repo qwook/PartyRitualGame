@@ -197,12 +197,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1845411645}
-  - {fileID: 950122956}
   - {fileID: 1380443298}
   - {fileID: 1514287662}
   - {fileID: 1559382626}
   - {fileID: 1836796866}
+  - {fileID: 950122956}
+  - {fileID: 1845411645}
   - {fileID: 1014954248}
   - {fileID: 1244374204}
   m_Father: {fileID: 0}
@@ -624,7 +624,7 @@ Transform:
   m_Children:
   - {fileID: 468603427}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!114 &950122957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1113,7 @@ Transform:
   m_Children:
   - {fileID: 1133319575}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!114 &1380443299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,7 +1262,7 @@ Transform:
   m_Children:
   - {fileID: 869298276}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!114 &1514287663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1350,7 @@ Transform:
   m_Children:
   - {fileID: 1045174071}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &1559382627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,7 +1438,7 @@ Transform:
   m_Children:
   - {fileID: 2053252683}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!114 &1836796867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1526,7 @@ Transform:
   m_Children:
   - {fileID: 621001271}
   m_Father: {fileID: 349870376}
-  m_RootOrder: 0
+  m_RootOrder: 5
 --- !u!23 &1845411646
 MeshRenderer:
   m_ObjectHideFlags: 0
