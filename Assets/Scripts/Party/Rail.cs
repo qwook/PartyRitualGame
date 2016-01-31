@@ -14,6 +14,8 @@ public class Rail : MonoBehaviour {
 	private string choice;
 	private Round currentRound;
 
+	private bool ended = false;
+
 	// Use this for initialization
 	void Start () {
 		currentRound = rounds [round++].GetComponent<Round> ();
@@ -33,6 +35,11 @@ public class Rail : MonoBehaviour {
 			choice = "none";
 		}
 		currentRound.select (choice);
+
+		if (ended) {
+			ended = false;
+			Global.LoadLevel ("Handshake");
+		}
 
 	}
 
@@ -58,8 +65,8 @@ public class Rail : MonoBehaviour {
 	}
 
 	public void end() {
+		ended = true;
 		Debug.Log ("end");
-		Global.LoadLevel ("Handshake");
 	}
 	
 }
