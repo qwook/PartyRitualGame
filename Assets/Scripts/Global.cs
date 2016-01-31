@@ -23,8 +23,6 @@ public class Global : MonoBehaviour {
 
 	public static void AddPoints(float points) {
 		score = Mathf.Min(Mathf.Min (score + points, Mathf.Ceil(score/20)*20-1), 100);
-
-		score += points;
 		Debug.Log ("lol2");
 	}
 
