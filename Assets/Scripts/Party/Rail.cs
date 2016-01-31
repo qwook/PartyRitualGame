@@ -15,6 +15,7 @@ public class Rail : MonoBehaviour {
 	private Round currentRound;
 
 	private bool ended = false;
+	private bool checking = false;
 
 	// Use this for initialization
 	void Start () {
@@ -41,9 +42,14 @@ public class Rail : MonoBehaviour {
 			Global.LoadLevel ("Handshake");
 		}
 
+		if (checking) {
+			check ();
+		}
+
 	}
 
 	public void check() {
+		
 		Debug.Log ("Check");
 		Debug.Log ("choice " + choice);
 		bool success = currentRound.check (choice);
@@ -56,8 +62,16 @@ public class Rail : MonoBehaviour {
 			else
 				Global.SubtractPoints (5);
 		}
+			
+	}
 
+	public void startCheck() {
+		checking = true;
+	}
+
+	public void endCheck() {
 		currentRound = rounds [round++].GetComponent<Round> ();
+		checking = false;
 	}
 
 	public void activate() {
