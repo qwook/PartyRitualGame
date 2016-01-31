@@ -37,10 +37,10 @@ public class Hand : MonoBehaviour {
 
 		if (cleanWaters > 0) {
 			dirtiness = Mathf.Max(dirtiness - Time.deltaTime*50f, 0f);
-			Global.AddPoints (Time.deltaTime*5f);
+			Global.AddPoints (Time.deltaTime*5f+(Global.GetDifficulty ()/11)*Time.deltaTime);
 		} else if (dirtyWaters > 0) {
 			dirtiness = Mathf.Min(dirtiness + Time.deltaTime*50f, 100f);
-			Global.SubtractPoints (Time.deltaTime*3f);
+			Global.SubtractPoints (Time.deltaTime*3f+(Global.GetDifficulty ()/10)*Time.deltaTime);
 		}
 
 		Global.SubtractPoints (Time.deltaTime);

@@ -35,6 +35,10 @@ public class TableHandler : MonoBehaviour {
 			}
 		}
 
+		if (Global.GetDifficulty () > 10) {
+			intensity += Global.GetDifficulty () / 10;
+		}
+
 		cameraVelocity += (cameraHome - Camera.main.transform.position).normalized * Time.deltaTime * 5;
 
 		cameraVelocity -= (cameraVelocity.normalized * Time.deltaTime*3);

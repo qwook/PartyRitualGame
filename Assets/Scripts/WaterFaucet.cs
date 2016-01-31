@@ -33,7 +33,11 @@ public class WaterFaucet : MonoBehaviour {
 		if (stop)
 			return;
 
-		step += Time.deltaTime;
+		if (Global.GetDifficulty () > 10) {
+			step += Time.deltaTime * (Global.GetDifficulty () / 10);
+		} else {
+			step += Time.deltaTime;
+		}
 
 		int i = 0;
 		foreach (GameObject water in waterList) {
