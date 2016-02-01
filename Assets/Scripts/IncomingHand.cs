@@ -33,6 +33,7 @@ public class IncomingHand : MonoBehaviour {
 	}
 
 	public void Shake() {
+		GameObject.Find ("MyFist").GetComponent<AudioSource> ().Play ();
 		if (GameObject.Find ("MyFist").GetComponent<SpriteRenderer> ().sprite == this.GetComponent<SpriteRenderer> ().sprite) {
 			GameObject.Find ("Result").GetComponent<Animator>().SetTrigger("Good");
 			Global.AddPoints (20);
